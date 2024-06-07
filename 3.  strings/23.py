@@ -1,0 +1,8 @@
+phrase = input("Enter a tiny phrase:")
+length = len(phrase)
+print("the length is", length)
+print("Choose a starting number between 0 and", length,"-1.")
+start = int(input("type it in here:"))
+print("Choose an ending number between", start, " and", length)
+end = int(input("Type it here:"))
+print(phrase[start:end])
