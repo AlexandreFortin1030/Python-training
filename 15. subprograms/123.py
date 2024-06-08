@@ -3,7 +3,7 @@ import csv
 ### Subprograms
 
 def menu():
-    print("###### --- Menu --- ######")
+    print("#!##### --- Menu --- #####!#")
     print("1) Add to file")
     print("2) View all records")
     print("3) Delete a record")
