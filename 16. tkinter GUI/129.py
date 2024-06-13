@@ -3,31 +3,41 @@ from tkinter import *
 
 window = Tk()
 window.title("Number Checker")
-window.geometry("600x300")
+window.geometry("600x380")
 window["bg"]="black"
 
-entry_var1 = StringVar()
+list = Listbox(window, height=10, width=50, bg="green", font="helvetica")
+list.place(x=100, y=230, width=400, height=110)
+
+
 
 label = Label(text="Enter a number bellow")
 label.place(x=200, y=30, width=200, height=30)
 label["bg"]="black"
 label["fg"]="white"
 
-entry_box1 = Entry(textvariable = entry_var1)
+entry_box1 = Entry(textvariable = 0)
 entry_box1.place(x=200, y=80, width=200, height=30)
 entry_box1 ["justify"] = "center"
 
+
+
+
 def checkNum():
-    global list
-    num = entry_var1.get()
+    num = entry_box1.get()
     if num.isdigit():
-        list.append(num)
-    else:
-        entry_box1.delete(0,END)
+        list.insert(END, num)
+        entry_box1.delete(0, END)
+    elif num.isdigit() == False:
+        entry_box1.delete(0, END)
+
 
 def reset():
     global list
-    list = []
+    list.delete(0, END)
+
+  
+  
 
 def display():
     output_box= Label(text=list)
@@ -39,11 +49,12 @@ def display():
 button1 = Button(text="Check", command=checkNum)
 button1.place(x=250, y=140, width=100, height=20)
 
-list = Listbox()
-list.place()
 
 button2 = Button(text="reset", command=reset)
 button2.place(x=250, y=180, width=100, height=20)
+
+
+
 
 window.mainloop()
 
