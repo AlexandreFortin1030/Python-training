@@ -1,12 +1,15 @@
 
 from tkinter import *
-import sys
+import csv
 
 
 window = Tk()
-window.geometry("600x250")
+window.geometry("600x550")
 window.title("Name and Age Tracker")
 window["bg"]="black"
+
+list = Listbox(window, height=10, width=50, bg="green", font="helvetica")
+list.place(x=200, y=200, width=200, height=230)
 
 label1 = Label(text="Enter name bellow")
 label1.place(x=100, y=40, width=150, height=20)
@@ -52,6 +55,14 @@ def save():
 def quit():
     window.destroy()
 
+def display():
+    list.delete(0, END)
+    with open("131.csv", "r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            list.insert(END, ', '.join(row))
+
+
 
 button1 = Button(text="Create .csv file", command=createFile)
 button1.place(x=115, y=140, width=125, height=30)
@@ -60,8 +71,11 @@ button2 = Button(text="Save", command=save)
 button2.place(x=365, y=140, width=125, height=30)
 
 button3 = Button(text="Quit", command=quit)
-button3.place(x=250, y=200, width=100, height=30)
+button3.place(x=250, y=500, width=100, height=30)
 button3["bg"]="red"
+
+button4 = Button(text="display", command=display)
+button4.place(x=250, y=450, width=100, height=30)
 
 
 

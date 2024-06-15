@@ -29,9 +29,6 @@ entry_box2 = Entry(textvariable=entry_var2)
 entry_box2.place(x=350, y=70, width=150, height=30)
 entry_box2["justify"]="center"
 
-# label question
-# input name
-# input age
 
 
 def createFile():
